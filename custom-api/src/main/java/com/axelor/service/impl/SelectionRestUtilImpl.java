@@ -24,7 +24,7 @@ public class SelectionRestUtilImpl implements SelectionRestUtil {
     private static final String SQL_META_TRANSLATION_TABLE_NAME = "meta_translation";
     private static final String SQL_META_SELECT_ITEM = "select * from %s self where" +
             " self.select_id = (select sub_self.id from %s sub_self where sub_self.name" +
-            " = :selectionName)";
+            " = :selectionName order by sub_self.priority desc limit 1)";
     private static final String SQL_META_TRANSLATION = "(select message_value from %s mt " +
             "where mt.message_key = self.%s and mt.language = '%s') as %s_%s";
 
